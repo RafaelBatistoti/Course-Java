@@ -4,7 +4,7 @@ public class Cassting {
 
 	public static void main(String[] args) {
 		
-		//See how Casting works
+		//See how Casting work
 		
 		int a,b;
 		double resultado;
