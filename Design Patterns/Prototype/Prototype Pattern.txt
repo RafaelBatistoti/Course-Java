@@ -1,0 +1,25 @@
+O Prototype Pattern (Padrão de Projeto Protótipo) é um padrão de criação que permite a cópia de objetos existentes sem precisar depender de sua classe concreta, ou seja, permite a clonagem de objetos de forma eficiente. Isso é útil quando a criação direta de objetos é custosa em termos de tempo ou recursos, como no caso de objetos complexos que envolvem processamento pesado ou configurações complexas.
+Para que serve o Prototype Pattern?
+
+    Criar novos objetos a partir de um protótipo (um objeto já existente), ao invés de criar uma nova instância do zero.
+    Evitar repetição ao criar objetos semelhantes, reduzindo a necessidade de escrever código para instanciar e configurar um objeto do zero repetidas vezes.
+    Facilitar a criação de cópias de objetos com pequenas variações.
+    Desempenho: Quando a criação de um objeto novo é muito custosa, o padrão Prototype oferece uma maneira de criar cópias rápidas.
+
+Como funciona o Prototype Pattern em Java:
+
+Para implementar o padrão Prototype em Java, a classe do objeto a ser clonado implementa a interface Cloneable e sobrepõe o método clone(). Isso permite criar uma cópia exata (ou clonada) de um objeto.
+
+Vantagens do Prototype Pattern:
+
+    Reduz o custo de criação de novos objetos: Clonar um objeto é geralmente mais rápido do que criar um novo, especialmente quando o processo de criação é custoso.
+    Facilita a criação de objetos similares: Com o Prototype, você pode facilmente criar objetos que são versões ligeiramente modificadas de um protótipo.
+    Isola o código cliente dos detalhes da criação: O cliente não precisa saber como criar novos objetos; ele apenas clona um objeto existente.
+
+Desvantagens:
+
+    Clonagem superficial vs profunda: Em algumas situações, uma cópia superficial (shallow copy) não é suficiente, especialmente se o objeto contiver referências a outros objetos. Nestes casos, pode ser necessário implementar clonagem profunda (deep copy), o que é mais complexo.
+
+Conclusão:
+
+O Prototype Pattern é útil quando você precisa criar cópias de objetos complexos de forma eficiente, sem saber os detalhes exatos de como esses objetos são criados.

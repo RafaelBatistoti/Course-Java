@@ -1,0 +1,5 @@
+com\Strategy\PagamentoCartaoCredito.class
+com\Strategy\PagamentoPayPal.class
+com\Strategy\CarrinhoCompras.class
+com\Strategy\App.class
+com\Strategy\StrategyPaymment.class

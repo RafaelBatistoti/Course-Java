@@ -1,0 +1,17 @@
+O padrão Factory Method é um dos padrões de criação de objetos mais utilizados no design de software. Ele permite que as subclasses decidam que classe instanciar, facilitando a flexibilidade e a reutilização de código.
+Para que serve o Factory Method?
+
+Ele é usado quando:
+
+    Há a necessidade de criar objetos sem especificar a classe exata que será instanciada. Isso torna o código mais flexível, pois permite que você adicione novas classes sem modificar as existentes.
+    Quer separar a lógica de criação de objetos da lógica de uso dos objetos. Isso mantém o código organizado e facilita a manutenção.
+    Várias implementações de uma interface ou classe abstrata precisam ser criadas. Assim, a classe base define o método de criação, mas quem decide qual objeto será criado são as subclasses.
+
+Como funciona em Java:
+
+No Factory Method, a classe base contém um método (geralmente abstrato) que é responsável pela criação de objetos. As subclasses implementam esse método, criando objetos específicos.
+
+Vantagens do Factory Method:
+
+    Facilidade na adição de novas classes: Você pode adicionar novas classes de produtos sem modificar o código existente.
+    Maior flexibilidade: O cliente não precisa saber qual classe específica será instanciada.

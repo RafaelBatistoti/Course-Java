@@ -1,0 +1,34 @@
+O padrão Strategy é um padrão de design comportamental que permite definir uma família de algoritmos, encapsulá-los e torná-los intercambiáveis. Em vez de implementar diretamente um algoritmo em uma classe, o padrão Strategy separa o comportamento em classes independentes, permitindo que diferentes estratégias (ou algoritmos) sejam trocadas dinamicamente em tempo de execução.
+Conceito básico:
+
+    Problema: Imagine que você tem uma classe que pode executar várias operações (como algoritmos ou comportamentos). Se você implementar todos esses algoritmos diretamente na classe, ela pode se tornar difícil de manter e modificar.
+    Solução: O padrão Strategy propõe a separação dessas operações em classes específicas, chamadas de estratégias. A classe principal (chamada de Contexto) escolhe qual estratégia usar, sem precisar saber os detalhes de cada uma.
+
+Componentes principais:
+
+    Strategy (Interface de Estratégia): Define uma interface comum para todos os algoritmos ou comportamentos. Cada estratégia concreta deve implementar essa interface.
+
+    Concrete Strategy (Estratégia Concreta): Implementa a interface de estratégia com um algoritmo específico.
+
+    Context (Contexto): A classe que usa uma instância de uma estratégia para executar o comportamento necessário. O contexto não sabe como a estratégia funciona internamente, ele apenas usa a interface para chamar o algoritmo.
+
+Exemplo:
+
+Imagine que você está desenvolvendo um sistema de pagamento que permite pagar com diferentes métodos (cartão de crédito, PayPal, etc.). Em vez de codificar todos esses métodos de pagamento diretamente em uma classe, você pode aplicar o padrão Strategy.
+
+    Strategy: Uma interface EstrategiaPagamento que define o método pagar().
+    Concrete Strategies: Implementações específicas para PagamentoCartaoCredito, PagamentoPayPal, etc.
+    Context: Um carrinho de compras que usa uma das estratégias de pagamento para processar a transação.
+
+Vantagens:
+
+    Flexibilidade: Permite que você altere o algoritmo em tempo de execução sem modificar o código da classe cliente.
+    Manutenibilidade: Cada algoritmo é separado em sua própria classe, facilitando a manutenção e a adição de novos algoritmos.
+    Principio "Open-Closed": Segue o princípio de design "aberto para extensão, fechado para modificação", onde você pode adicionar novos comportamentos sem alterar o código existente.
+
+Quando usar:
+
+    Quando você tem várias variações de um algoritmo que podem ser aplicadas de forma intercambiável.
+    Quando você deseja evitar usar muitos condicionais (if, switch) em uma classe que toma decisões baseadas em diferentes comportamentos.
+
+O padrão Strategy oferece uma maneira elegante de evitar o acoplamento entre a classe que usa o algoritmo e as implementações concretas desses algoritmos.

@@ -1,0 +1,8 @@
+O padrão Singleton é um padrão de projeto de software que garante que uma classe tenha apenas uma única instância durante toda a execução de um programa. Além disso, ele oferece um ponto de acesso global para essa instância.
+
+Imagine que você tem um único recurso no seu sistema (como uma impressora ou uma conexão com o banco de dados) e quer ter certeza de que todas as partes do seu código usem a mesma instância desse recurso, em vez de criar novas instâncias. O Singleton ajuda a resolver esse problema, fornecendo um único objeto compartilhado por todos.
+Características principais:
+
+    Uma única instância: A classe gerencia a criação de sua própria instância e só permite a criação de uma instância.
+    Acesso global: A instância é acessível por todo o código, geralmente por meio de um método estático.
+    Controle de criação: O construtor da classe é privado ou protegido para impedir a criação direta de novas instâncias.

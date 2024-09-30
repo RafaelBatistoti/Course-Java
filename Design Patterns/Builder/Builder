@@ -1,0 +1,15 @@
+O padrão Builder é um padrão de design de criação que facilita a construção de objetos complexos. Ele permite a criação de objetos passo a passo, onde você pode decidir quais atributos serão configurados, evitando a criação de construtores longos e difíceis de entender.
+Para que serve o Builder?
+
+    Simplificar a criação de objetos complexos: Quando um objeto tem muitos atributos, o Builder ajuda a evitar construtores com muitos parâmetros, tornando o código mais legível.
+    Facilitar a construção de objetos imutáveis: Como o objeto é construído passo a passo, você pode garantir que ele não será modificado depois de criado.
+    Flexibilidade na construção: Ele permite criar diferentes configurações do mesmo objeto, com combinações variadas de atributos.
+
+    Vantagens do padrão Builder:
+
+    Código mais limpo: Evita construtores com muitos parâmetros.
+    Legibilidade: A criação do objeto se torna mais fácil de ler, pois cada atributo é configurado de maneira clara.
+    Imutabilidade: Os objetos construídos podem ser facilmente imutáveis, pois todos os atributos são definidos durante a construção.
+    Flexibilidade: Você pode criar diferentes variações do objeto sem precisar de vários construtores ou de configurações complexas.
+
+O padrão Builder é muito útil em situações onde o número de parâmetros pode crescer, ou onde há a necessidade de criar objetos complexos de forma flexível e legível.
