@@ -1,0 +1,38 @@
+Simple IF conditional 
+
+if ( <conditional> ) {
+	<command 1>
+	<command 2>
+}
+
+
+Simple IF - ELSE conditional 
+
+if ( <conditional> ) {
+	<command 1>
+	<command 2>
+}
+else {
+	<command 3>
+	<command 4>
+}
+
+
+Simple IF- ELSE IF - ELSE conditional 
+
+if ( conditional 1 ) {
+	command 1
+	command 2
+}
+else if ( conditional 2 ) {
+	command 3
+	command 4
+}
+else if ( conditional 3 ) {
+	command 5
+	command 6
+}
+else {
+	command 7
+	command 8
+}

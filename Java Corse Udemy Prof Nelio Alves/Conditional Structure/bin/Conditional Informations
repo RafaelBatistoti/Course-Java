@@ -1,6 +1,5 @@
  
- Conditional AND (&&)
- 
+ Conditional AND (&&) 
  A     |  B     | A && B
 -------------------------
  true  | true   | true
@@ -8,9 +7,7 @@
  false | true   | false
  false | false  | false
  
- 
-  Conditional OR (||)
- 
+  Conditional OR (||) 
   A     |  B     | A || B
 -------------------------
  true  | true   | true
@@ -18,12 +15,19 @@
  false | true   | true
  false | false  | false
  
- Conditional DIFERENT (!=)
- 
+ Conditional DIFERENT (!=) 
   A     |  B     | A != B
 -------------------------
  true  | true   | false
  true  | false  | true
  false | true   | true
  false | false  | false
+ 
+ Operador | Equivalência
+-------------------------
+ a += b   | a = a + b
+ a -= b   | a = a - b
+ a *= b   | a = a * b
+ a /= b   | a = a / b
+ a %= b   | a = a % b
  
