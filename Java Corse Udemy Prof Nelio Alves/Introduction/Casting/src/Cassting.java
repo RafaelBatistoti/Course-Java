@@ -10,8 +10,7 @@ public class Cassting {
 		a =5;
 		b =2;
 		
-		resultado = (double) a/b; 	//The casting is added because of the values "a" and "b" are int type
-									//Without the casting the result will be "2.0"
+		resultado = (double) a/b; 	// Atribuindo o Casting porque "a" e "b" são do tipo int
 		
 		System.out.println(resultado);
 
