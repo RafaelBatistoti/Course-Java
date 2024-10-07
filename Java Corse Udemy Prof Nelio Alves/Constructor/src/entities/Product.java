@@ -5,7 +5,9 @@ public class Product {
 	public String name;
 	public double price;
 	public int quantity;
-
+	
+	
+//	atribuindo um construtor para que seja mandatório inserção de parametros na chamada do objeto
 	public Product(String name, double price, int quantity) {
 		this.name = name;
 		this.price = price;
