@@ -12,7 +12,7 @@ public class Main {
 
 		int[][] mat = new int[n][n];
 
-//		Loop que percorre as linhas
+//			Loop que percorre as linhas
 		for (int i = 0; i < mat.length; i++) {
 //			Loop que percorre as colunas
 			for (int j = 0; j < mat[i].length; j++) {
