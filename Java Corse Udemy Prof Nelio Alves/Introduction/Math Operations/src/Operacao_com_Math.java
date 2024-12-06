@@ -1,6 +1,11 @@
+import java.util.Locale;
+
 public class Operacao_com_Math {
 
 	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		
 //		Algumas funções matemáticas em Java
 //		Exemplo Significado
 
@@ -12,6 +17,14 @@ public class Operacao_com_Math {
 		A = Math.sqrt(x);   // Variável A recebe a raiz quadrada de x;
 		A = Math.pow(x, y); // Variável A recebe o resultado de x elevado a y
 		A = Math.abs(x);    // Variável A recebe o valor absoluto de x;
+		
+		double valor = Math.pow(1.02, 3);
+		double diferenteValor = 1.02 * 1.02 * 1.02;
+		double total = 200.00 * valor;
+		
+		System.out.println("Total valor: " + String.format("%.2f",valor));
+		System.out.println("Total diferente valor: " + String.format("%.2f",diferenteValor));
+		System.out.println("Total : " + String.format("%.2f",total));
 
 		A = Math.sqrt(x);
 		B = Math.sqrt(y);
@@ -40,7 +53,7 @@ public class Operacao_com_Math {
 		double helth        = 2000.00;
 		double tax;
 
-		double total = anualPayment * (25.0 / 100);
+//		double total = anualPayment * (25.0 / 100);
 		System.out.println(total);
 				
 		if (helth != 0) {

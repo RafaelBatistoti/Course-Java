@@ -17,11 +17,7 @@ public class Main {
 		rect.width = sc.nextDouble();
 		
 		System.out.println(rect);
-		
-		
-		
-		
-		
+
 		sc.close();
 
 	}
