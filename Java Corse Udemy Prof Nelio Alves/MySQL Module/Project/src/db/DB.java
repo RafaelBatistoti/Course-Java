@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import db.exceptions.DbException;
+
 public class DB {
 
 	public static void closeConnection() {
