@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import db.exceptions.DbException;
@@ -40,35 +41,44 @@ public class SellerDaoJDBC implements SellerDao {
 
 	@Override
 	public Seller findById(Integer id) {
-	    String query = "SELECT seller.*, department.Name as DepName " 
-	                 + "FROM seller INNER JOIN department " 
-	                 + "ON seller.DepartmentId = department.Id " 
-	                 + "WHERE seller.Id = ?";
 
-	    try (PreparedStatement st = conn.prepareStatement(query)) {
-	        st.setInt(1, id);
-	        ResultSet rs = st.executeQuery();
+		try (PreparedStatement st = conn
+				.prepareStatement(
+						"SELECT seller.*,department.Name as DepName " 
+						+ "FROM seller INNER JOIN department "
+						+ "ON seller.DepartmentId = department.Id " 
+						+ "WHERE seller.Id = ?")) {
 
-	        if (rs.next()) {
-	            Department dep = new Department(rs.getInt("DepartmentId"), rs.getString("DepName"));
-	            Seller obj = new Seller();
-	            obj.setId(rs.getInt("id"));
-	            obj.setName(rs.getString("Name"));
-	            obj.setEmail(rs.getString("Email"));
-	            obj.setBirthDate(rs.getDate("BirthDate") != null ? rs.getDate("BirthDate").toLocalDate() : null);
-	            obj.setBaseSalary(rs.getDouble("BaseSalary"));
-	            obj.setDepartment(dep);
-	            return obj;
-	        }
-	       
-	        throw new EntityNotFoundException("Seller with ID " + id + " not found.");
+			st.setInt(1, id);
+			ResultSet rs = st.executeQuery();
+			if (rs.next()) {
+				Department dep = instantiateDepartment(rs);
+				Seller obj = instantiateSeller(rs, dep);
+				return obj;
+			}
+			throw new EntityNotFoundException("Seller with ID " + id + " not found.");
+		}
+		catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}
 
-	    } catch (SQLException e) {
-	        throw new DbException(e.getMessage());
-	    }
 	}
 
+	private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException {
+		Seller obj = new Seller();
+		obj.setId(rs.getInt("id"));
+		obj.setName(rs.getString("Name"));
+		obj.setEmail(rs.getString("Email"));
+		obj.setBirthDate(rs.getDate("BirthDate") != null ? rs.getDate("BirthDate").toLocalDate() : null);
+		obj.setBaseSalary(rs.getDouble("BaseSalary"));
+		obj.setDepartment(dep);
+		return obj;
+	}
 
+	private Department instantiateDepartment(ResultSet rs) throws SQLException {
+		Department dep = new Department(rs.getInt("DepartmentId"), rs.getString("DepName"));
+		return dep;
+	}
 
 	@Override
 	public List<Seller> findAll() {
