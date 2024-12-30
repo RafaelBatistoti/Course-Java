@@ -68,9 +68,28 @@ public class SellerDaoJDBC implements SellerDao {
 
 	@Override
 	public List<Seller> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		try (PreparedStatement st = conn
+				.prepareStatement(
+						"SELECT seller.*,department.Name as DepName " 
+						+ "FROM seller INNER JOIN department "
+						+ "ON seller.DepartmentId = department.Id " 
+						+ "ORDER BY Name")) {
+
+			
+			ResultSet rs = st.executeQuery();
+
+			List<Seller>             listSeller = new ArrayList<>();
+			Map<Integer, Department> mapDep     = new HashMap<>();
+
+			findInformation(rs, listSeller, mapDep);
+			return listSeller;
+		}
+		catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}
 	}
+
+	
 
 	@Override
 	public List<Seller> findByDepartment(Department department) {
@@ -89,17 +108,8 @@ public class SellerDaoJDBC implements SellerDao {
 			List<Seller>             listSeller = new ArrayList<>();
 			Map<Integer, Department> mapDep     = new HashMap<>();
 
-			while (rs.next()) {
-
-				Department dep = mapDep.get(rs.getInt("DepartmentId"));
-				if (dep == null) {
-					dep = instantiateDepartment(rs);
-					mapDep.put(rs.getInt("DepartmentId"), dep);
-				}
-
-				Seller obj = instantiateSeller(rs, dep);
-				listSeller.add(obj);
-			}
+			findInformation(rs, listSeller, mapDep);
+			
 			return listSeller;
 		}
 		catch (SQLException e) {
@@ -121,5 +131,20 @@ public class SellerDaoJDBC implements SellerDao {
 	private Department instantiateDepartment(ResultSet rs) throws SQLException {
 		Department dep = new Department(rs.getInt("DepartmentId"), rs.getString("DepName"));
 		return dep;
+	}
+	
+	private void findInformation(ResultSet rs, List<Seller> listSeller, Map<Integer, Department> mapDep)
+			throws SQLException {
+		while (rs.next()) {
+
+			Department dep = mapDep.get(rs.getInt("DepartmentId"));
+			if (dep == null) {
+				dep = instantiateDepartment(rs);
+				mapDep.put(rs.getInt("DepartmentId"), dep);
+			}
+
+			Seller obj = instantiateSeller(rs, dep);
+			listSeller.add(obj);
+		}
 	}
 }

@@ -15,12 +15,21 @@ public class Main {
 		
 		
 		System.out.println("*********** Seller: FindById ***********");
-		Seller seller = sellerDao.findById(2);
-		System.out.println(seller + "\n");
+		System.out.println(sellerDao.findById(2));
+		
+		System.out.println();
 		
 		System.out.println("*********** Seller: FindByDepartment ***********");
 		sellerDao.findByDepartment(new Department(2, null)).forEach(System.out::println);
-
+		
+		System.out.println();
+		
+		System.out.println("*********** Seller: FindAll ***********");
+		sellerDao.findAll().forEach(System.out::println);
+		
+		
+		
+		
 
 
 	}
