@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Pessoa pessoa = new Pessoa(null, "Generico", "generico@gmail.com");
+		Pessoa pessoa = new Pessoa(null, "Gabriel", "gabriel@gmail.com");
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
 		EntityManager        em  = emf.createEntityManager();
@@ -20,6 +20,9 @@ public class Main {
 		em.getTransaction().commit();
 
 		System.out.println("Done!");
+
+		emf.close();
+		em.close();
 	}
 
 }
