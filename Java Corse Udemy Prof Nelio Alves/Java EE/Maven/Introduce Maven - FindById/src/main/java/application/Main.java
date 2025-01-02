@@ -10,16 +10,12 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Pessoa pessoa = new Pessoa(null, "Fernando", "fernando@gmail.com");
-
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
 		EntityManager        em  = emf.createEntityManager();
 
-		em.getTransaction().begin();
-		em.persist(pessoa);
-		em.getTransaction().commit();
+		Pessoa pessoa = em.find(Pessoa.class, 5);
 
-		System.out.println("Done!");
+		System.out.println(pessoa);
 
 		emf.close();
 		em.close();
