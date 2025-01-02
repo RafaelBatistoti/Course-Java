@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -85,7 +84,7 @@ public class SellerDaoJDBC implements SellerDao {
 	}
 
 	@Override
-	public void deleteBy(Integer id) {
+	public void deleteById(Integer id) {
 		try (PreparedStatement st = conn.prepareStatement(
 				"DELETE FROM seller "
 				+ "WHERE id = ?")) {
@@ -132,8 +131,11 @@ public class SellerDaoJDBC implements SellerDao {
 
 	@Override
 	public List<Seller> findAll() {
-		try (PreparedStatement st = conn.prepareStatement("SELECT seller.*,department.Name as DepName "
-				+ "FROM seller INNER JOIN department " + "ON seller.DepartmentId = department.Id " + "ORDER BY Name")) {
+		try (PreparedStatement st = conn.prepareStatement(
+				"SELECT seller.*,department.Name as DepName "
+				+ "FROM seller INNER JOIN department " 
+				+ "ON seller.DepartmentId = department.Id " 
+				+ "ORDER BY Name")) {
 
 			ResultSet rs = st.executeQuery();
 
