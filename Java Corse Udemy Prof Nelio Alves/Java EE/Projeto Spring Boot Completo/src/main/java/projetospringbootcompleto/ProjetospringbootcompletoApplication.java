@@ -1,13 +1,13 @@
-package com.udemy.Projeto_completo_SpringBoot;
+package projetospringbootcompleto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjetoCompletoSpringBootApplication {
+public class ProjetospringbootcompletoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjetoCompletoSpringBootApplication.class, args);
+		SpringApplication.run(ProjetospringbootcompletoApplication.class, args);
 	}
 
 }

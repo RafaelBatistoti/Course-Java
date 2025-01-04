@@ -1,11 +1,11 @@
-package com.udemy.Projeto_completo_SpringBoot.resources;
+package projetospringbootcompleto.resources;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.udemy.Projeto_completo_SpringBoot.entities.User;
+import projetospringbootcompleto.entities.User;
 
 @RestController
 @RequestMapping(value="/users")

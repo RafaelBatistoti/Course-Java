@@ -1,4 +1,4 @@
-package com.udemy.Projeto_completo_SpringBoot.entities;
+package projetospringbootcompleto.entities;
 
 import java.io.Serializable;
 import java.util.Objects;

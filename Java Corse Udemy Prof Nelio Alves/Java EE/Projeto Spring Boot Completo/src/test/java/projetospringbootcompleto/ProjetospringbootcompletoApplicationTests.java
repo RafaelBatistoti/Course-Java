@@ -1,10 +1,10 @@
-package com.udemy.Projeto_completo_SpringBoot;
+package projetospringbootcompleto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjetoCompletoSpringBootApplicationTests {
+class ProjetospringbootcompletoApplicationTests {
 
 	@Test
 	void contextLoads() {
