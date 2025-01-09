@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import projetospringbootcompleto.entities.Category;
 import projetospringbootcompleto.entities.Order;
+import projetospringbootcompleto.entities.OrderItem;
 import projetospringbootcompleto.entities.Product;
 import projetospringbootcompleto.entities.User;
 import projetospringbootcompleto.enums.OrderStatus;
 import projetospringbootcompleto.repositories.CategoryRepository;
+import projetospringbootcompleto.repositories.OrderItemRepository;
 import projetospringbootcompleto.repositories.OrderRepository;
 import projetospringbootcompleto.repositories.ProductRepository;
 import projetospringbootcompleto.repositories.UserRepository;
@@ -33,6 +35,9 @@ public class TestConfig implements CommandLineRunner {
 
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -68,6 +73,13 @@ public class TestConfig implements CommandLineRunner {
 
 		userRepository.saveAll(Arrays.asList(user_1, user_2));
 		orderRepository.saveAll(Arrays.asList(order_1, order_2, order_3));
+		
+		OrderItem orderItem_1 = new OrderItem(order_1, product_1, 2, product_1.getPrice());
+		OrderItem orderItem_2 = new OrderItem(order_1, product_3, 1, product_3.getPrice());
+		OrderItem orderItem_3 = new OrderItem(order_2, product_3, 2, product_3.getPrice());
+		OrderItem orderItem_4 = new OrderItem(order_3, product_5, 2, product_5.getPrice());
+		
+		orderItemRepository.saveAll(Arrays.asList(orderItem_1, orderItem_2, orderItem_3, orderItem_4));
 	}
 
 }
