@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import projetospringbootcompleto.entities.Category;
 import projetospringbootcompleto.entities.Order;
 import projetospringbootcompleto.entities.OrderItem;
+import projetospringbootcompleto.entities.Payment;
 import projetospringbootcompleto.entities.Product;
 import projetospringbootcompleto.entities.User;
 import projetospringbootcompleto.enums.OrderStatus;
@@ -80,6 +81,10 @@ public class TestConfig implements CommandLineRunner {
 		OrderItem orderItem_4 = new OrderItem(order_3, product_5, 2, product_5.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(orderItem_1, orderItem_2, orderItem_3, orderItem_4));
+		
+		Payment payment_1 = new Payment(null,Instant.parse("2019-06-20T19:53:07Z"),order_1);
+		order_1.setPayment(payment_1);
+		orderRepository.save(order_1);
 	}
 
 }
