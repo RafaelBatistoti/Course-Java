@@ -21,7 +21,7 @@ public class UserService {
 
 	public User findById(Long id) {
 		Optional<User> obj = userRepository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 
 	public User insert(User user) {
@@ -43,7 +43,6 @@ public class UserService {
 		entity.setName(user.getName());
 		entity.setEmail(user.getEmail());
 		entity.setPhone(user.getPhone());
-
 
 	}
 
